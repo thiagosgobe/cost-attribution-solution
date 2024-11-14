@@ -1,0 +1,94 @@
+<div>
+  <mat-toolbar color="primary">
+    <span>Cost Attribution Solution</span>
+    <span class="spacer"></span>
+    <button mat-icon-button aria-label="help icon" (click)="helpDialog()">
+      <mat-icon>contact_support</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav #sidenav [mode]="mode" opened>
+      <div mat-subheader class="subheader">Tags</div>
+
+      <!-- Tags  -->
+      <mat-nav-list>
+        <mat-list-item routerLink="/tags/manage" routerLinkActive="active">
+          <p matListItemTitle>Manage</p>
+          <mat-icon matListItemIcon>edit_note</mat-icon>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/tags/bindings" routerLinkActive="active">
+          <h3 matListItemTitle>Bindings</h3>
+          <mat-icon matListItemIcon>link</mat-icon>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/tags/upload" routerLinkActive="active">
+          <p matListItemTitle>Bulk Upload</p>
+          <mat-icon matListItemIcon>upload_file</mat-icon>
+        </mat-list-item>
+      </mat-nav-list>
+
+      <mat-divider></mat-divider>
+
+      <div mat-subheader class="subheader">Labels</div>
+
+      <!-- Labels  -->
+      <mat-nav-list>
+        <mat-list-item routerLink="/label-manage" routerLinkActive="active">
+          <h3 matListItemTitle>Manage</h3>
+          <mat-icon matListItemIcon>edit_note</mat-icon>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/label-bindings" routerLinkActive="active">
+          <h3 matListItemTitle>Bindings</h3>
+          <mat-icon matListItemIcon>link</mat-icon>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/label-upload" routerLinkActive="active">
+          <h3 matListItemTitle>Bulk Upload</h3>
+          <mat-icon matListItemIcon>upload_file</mat-icon>
+        </mat-list-item>
+      </mat-nav-list>
+
+      <mat-divider></mat-divider>
+
+      <div mat-subheader class="subheader">Reports</div>
+
+      <!-- Reports  -->
+      <mat-nav-list>
+        <mat-list-item
+          routerLink="/reports/missing_attributions"
+          routerLinkActive="active"
+        >
+          <h3 matListItemTitle>Missing attributions</h3>
+          <mat-icon matListItemIcon>report</mat-icon>
+        </mat-list-item>
+
+        <mat-list-item routerLink="/reports/billing" routerLinkActive="active">
+          <h3 matListItemTitle>Billing</h3>
+          <mat-icon matListItemIcon>attach_money</mat-icon>
+        </mat-list-item>
+      </mat-nav-list>
+
+      <mat-divider></mat-divider>
+
+      <mat-nav-list>
+        <!-- Configurations  -->
+
+        <mat-list-item routerLink="/configurations" routerLinkActive="active">
+          <h3 matListItemTitle>Configurations</h3>
+          <mat-icon matListItemIcon>settings</mat-icon>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <mat-card class="card-content mat-elevation-z20">
+        <mat-card-content>
+          <router-outlet />
+        </mat-card-content>
+      </mat-card>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
