@@ -26,9 +26,10 @@ import {
 } from "@angular/material/dialog";
 import { Tag, TagsController } from "../../../model/models";
 import { MatButtonModule } from "@angular/material/button";
+import { Service } from "../../../model/Service";
 
 @Component({
-  selector: "app-tags",
+  selector: "app-manage-tags",
   standalone: true,
   imports: [
     MatButtonModule,
@@ -39,11 +40,17 @@ import { MatButtonModule } from "@angular/material/button";
     MatListModule,
     MatIconModule,
   ],
-  templateUrl: "./tags.component.html",
-  styleUrl: "./tags.component.sass",
+  templateUrl: "./manage-tags.component.html",
+  styleUrl: "./manage-tags.component.sass",
 })
-export class TagsComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: TagsController) {}
+export class ManageTagsComponent {
+  tags: Tag[] = [];
+
+  constructor(service: Service) {
+    service.fetchTags().subscribe((tags) => {
+      this.tags = tags;
+    });
+  }
 
   formatTagValues(tag: Tag) {
     return tag.values.map((v) => v.value).join(", ");

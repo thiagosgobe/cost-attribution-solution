@@ -27,9 +27,13 @@ import {
 import { MatIconModule } from "@angular/material/icon";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
-import { Resource, TagBinding, TagsController } from "../../../../model/models";
+import { Service } from "../../../../../model/Service";
+import {
+  Resource,
+  TagBinding,
+  TagsController,
+} from "../../../../../model/models";
 import { EditComponent } from "../edit.component";
-import { Service } from "../../../../model/Service";
 
 type EditTagData = {
   resources: Resource[];
@@ -37,7 +41,7 @@ type EditTagData = {
 };
 
 @Component({
-  selector: "app-bulk-remove",
+  selector: "app-bulk-edit",
   standalone: true,
   imports: [
     MatDialogActions,
@@ -50,10 +54,10 @@ type EditTagData = {
     MatProgressBarModule,
     EditComponent,
   ],
-  templateUrl: "./bulk-remove.component.html",
-  styleUrl: "./bulk-remove.component.sass",
+  templateUrl: "./bulk-edit.component.html",
+  styleUrl: "./bulk-edit.component.sass",
 })
-export class BulkRemoveComponent {
+export class BulkEditComponent {
   saving: boolean = false;
   valid: boolean = false;
   availableTags: TagsController;
@@ -61,7 +65,7 @@ export class BulkRemoveComponent {
 
   constructor(
     private service: Service,
-    public dialogRef: MatDialogRef<BulkRemoveComponent>,
+    public dialogRef: MatDialogRef<BulkEditComponent>,
     @Inject(MAT_DIALOG_DATA) public data: EditTagData,
     private _snackBar: MatSnackBar,
   ) {
@@ -74,7 +78,7 @@ export class BulkRemoveComponent {
 
     // Call backend
     this.service
-      .removeTagsFromResources(
+      .addTagsToResources(
         this.data.resources.map((r) => ({
           id: r.id,
           location: r.location,
@@ -88,13 +92,13 @@ export class BulkRemoveComponent {
 
           if (errorsCount > 0) {
             this._snackBar.open(
-              `Fail to remove tags from ${errorsCount} resources${errorsCount < resourcesCount ? ` (other ${resourcesCount - errorsCount} succeeded).` : "."}`,
+              `Fail to add tags to ${errorsCount} resources${errorsCount < resourcesCount ? ` (other ${resourcesCount - errorsCount} succeeded).` : "."}`,
               "Close",
               { duration: 30000 },
             );
           } else {
             this._snackBar.open(
-              `Tags removed from ${this.data.resources.length} resources.`,
+              `Tags added to ${this.data.resources.length} resources.`,
               "Close",
               { duration: 3000 },
             );

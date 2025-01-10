@@ -18,11 +18,30 @@ import { Routes } from "@angular/router";
 
 export const routes: Routes = [
     {
-        path: "tags/bindings",
-        loadComponent: () =>
-            import("./tags/bindings/bindings.component").then(
-                (m) => m.TagsBindingsComponent,
-            ),
+        path: "tags",
+        children: [
+            {
+                path: "manage",
+                loadComponent: () =>
+                    import("./tags/manage/manage-tags.component").then(
+                        (m) => m.ManageTagsComponent,
+                    ),
+            },
+            {
+                path: "bindings",
+                loadComponent: () =>
+                    import("./tags/bindings/bindings.component").then(
+                        (m) => m.TagsBindingsComponent,
+                    ),
+            },
+            {
+                path: "upload",
+                loadComponent: () =>
+                    import("./tags/upload/upload.component").then(
+                        (m) => m.UploadComponent,
+                    ),
+            },
+        ],
     },
     {
         path: "reports/:reportType",

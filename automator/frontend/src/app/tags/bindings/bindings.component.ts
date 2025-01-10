@@ -25,13 +25,12 @@ import { MatFormField } from "@angular/material/select";
 import { MatSort, MatSortModule } from "@angular/material/sort";
 import { MatTableDataSource, MatTableModule } from "@angular/material/table";
 import { Resource, TagBinding, TagsController } from "../../../model/models";
-import { TagsComponent } from "../tags/tags.component";
 import { AvailableTags } from "../available_tags";
 import { combineLatest } from "rxjs";
 import { Service } from "../../../model/Service";
-import { SingleEditComponent } from "../edit/single-edit/single-edit.component";
-import { BulkEditComponent } from "../edit/bulk-add/bulk-edit.component";
-import { BulkRemoveComponent } from "../edit/bulk-remove/bulk-remove.component";
+import { SingleEditComponent } from "./edit/single-edit/single-edit.component";
+import { BulkEditComponent } from "./edit/bulk-add/bulk-edit.component";
+import { BulkRemoveComponent } from "./edit/bulk-remove/bulk-remove.component";
 import { MatTooltipModule } from "@angular/material/tooltip";
 
 type DisplayResource = Resource & { displayTags: string };
@@ -98,15 +97,6 @@ export class TagsBindingsComponent {
       }));
 
       this.loading = false;
-    });
-  }
-
-  viewAvailableTags() {
-    this.dialog.open(TagsComponent, {
-      width: "40vw",
-      enterAnimationDuration: 200,
-      exitAnimationDuration: 200,
-      data: this.availableTags,
     });
   }
 
