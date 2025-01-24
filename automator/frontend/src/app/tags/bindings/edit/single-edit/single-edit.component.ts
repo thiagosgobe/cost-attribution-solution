@@ -27,8 +27,8 @@ import {
 import { MatIconModule } from "@angular/material/icon";
 import { MatProgressBarModule } from "@angular/material/progress-bar";
 import { MatSnackBar, MatSnackBarModule } from "@angular/material/snack-bar";
-import { Resource, TagsController } from "../../../../../model/models";
-import { Service } from "../../../../../model/Service";
+import { Resource, TagsController } from "../../../../core/model/models";
+import { Service } from "../../../../core/model/Service";
 import { EditComponent } from "../edit.component";
 
 type EditTagData = {

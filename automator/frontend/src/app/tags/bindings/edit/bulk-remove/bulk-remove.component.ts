@@ -31,9 +31,9 @@ import {
   Resource,
   TagBinding,
   TagsController,
-} from "../../../../../model/models";
+} from "../../../../core/model/models";
 import { EditComponent } from "../edit.component";
-import { Service } from "../../../../../model/Service";
+import { Service } from "../../../../core/model/Service";
 
 type EditTagData = {
   resources: Resource[];

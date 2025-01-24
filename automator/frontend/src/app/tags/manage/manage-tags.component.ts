@@ -15,18 +15,17 @@
 */
 
 import { MatListModule } from "@angular/material/list";
-import { Component, Inject } from "@angular/core";
+import { Component } from "@angular/core";
 import { MatIconModule } from "@angular/material/icon";
 import {
-  MAT_DIALOG_DATA,
   MatDialogActions,
   MatDialogClose,
   MatDialogContent,
   MatDialogTitle,
 } from "@angular/material/dialog";
-import { Tag, TagsController } from "../../../model/models";
+import { Tag } from "../../core/model/models";
 import { MatButtonModule } from "@angular/material/button";
-import { Service } from "../../../model/Service";
+import { Service } from "../../core/model/Service";
 
 @Component({
   selector: "app-manage-tags",

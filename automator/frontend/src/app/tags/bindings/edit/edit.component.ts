@@ -29,7 +29,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
 import { MatSelectModule } from "@angular/material/select";
-import { TagBinding, TagsController, Value } from "../../../../model/models";
+import { TagBinding, TagsController, Value } from "../../../core/model/models";
 
 type TagControl = {
   key: FormControl<string | null>;

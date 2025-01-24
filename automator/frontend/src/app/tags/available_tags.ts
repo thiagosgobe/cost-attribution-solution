@@ -14,7 +14,7 @@
    limitations under the License.
 */
 
-import { Tag, TagsController, Value } from "../../model/models";
+import { Tag, TagsController, Value } from "../core/model/models";
 
 export class AvailableTags implements TagsController {
     private readonly _tags: Tag[];

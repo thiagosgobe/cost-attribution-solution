@@ -20,11 +20,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { provideAnimationsAsync } from "@angular/platform-browser/animations/async";
 import { routes } from "./app.routes";
 import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from "@angular/material/form-field";
-import { Service } from "../model/Service";
-import { SERVICE_CONFIG, TITLE } from "../model/values";
+import { Service } from "./core/model/Service";
+import { SERVICE_CONFIG, TITLE } from "./core/model/values";
 import { environment } from "./../environments/environment";
-import { BackendService } from "./backend.service";
-import { MockBackendService } from "./mock-backend";
+import { BackendService } from "./core/services/backend.service";
+import { MockBackendService } from "./core/mocks/mock-backend";
 
 export const appConfig: ApplicationConfig = {
     providers: [
